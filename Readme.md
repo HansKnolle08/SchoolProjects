@@ -6,3 +6,4 @@
 - Rechteck zeichnen
 - n-Eck zeichnen
 - Stern zeichnen
+- Nikolaushaus zeichnen

@@ -17,6 +17,12 @@ class Functions:
             self.hansisi.right(90)
             i+=1
 
+    def Dreieck(self, i: int = 0) -> None:
+        while not i == 3:
+            self.hansisi.forward(100)
+            self.hansisi.left(120)
+            i+=1
+
     def Rechteck(self, i: int = 0) -> None:
         while not i == 2:
             self.hansisi.forward(100)
@@ -29,6 +35,7 @@ class Functions:
         while not i == 100:
             self.hansisi.forward(100)
             self.hansisi.right(360 / i)
+            i+=1
 
     def Stern(self, i: int = 0) -> None:
         for self.n in range(5):
@@ -36,6 +43,10 @@ class Functions:
             time.sleep(1)
             self.hansisi.left(144)
 
+    def Nikolaus(self, i: int = 0) -> None:
+        self.Quadrat()
+        self.Dreieck()
+
 if __name__ == '__main__':
     my_funcs = Functions()
-    my_funcs.Stern(300)
+    my_funcs.Nikolaus()
