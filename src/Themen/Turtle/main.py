@@ -9,6 +9,7 @@ class Functions:
         self.hansisi = t.Turtle()
         self.hansisi.speed(0)
         self.hansisi.shape("turtle")
+        self.n = 0
 
     def Quadrat(self, i: int = 0) -> None:
         while not i == 4:
@@ -29,8 +30,8 @@ class Functions:
             self.hansisi.forward(100)
             self.hansisi.right(360 / i)
 
-    def Stern(self, i: int = 0, n: int = 0) -> None:
-        for n in range(5):
+    def Stern(self, i: int = 0) -> None:
+        for self.n in range(5):
             self.hansisi.forward(i)
             time.sleep(1)
             self.hansisi.left(144)
