@@ -7,7 +7,7 @@ description="Programme und Projekte die im Rahmen des Informatikunterrichts ents
 project.toml="/project.toml"
 readme="/readme.md"
 pip_req="/requirements.txt"
-.gitignore="/.gitignore"
+gitignore="/.gitignore"
   -> *.pyc
   -> __pycache__
   -> /.venv
