@@ -1,3 +1,9 @@
+# Python Cache
 *.pyc
 __pycache__
+
+# Virtual Environments
+# .venv = Windows Venv
+# venv = Linux Venv
 /.venv
+/venv

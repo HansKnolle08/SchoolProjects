@@ -1,0 +1,23 @@
+[Project Meta]
+name="SchoolProjects"
+version="1.1"
+description="Programme und Projekte die im Rahmen des Informatikunterrichts entstanden sind"
+
+[Structure]
+project.toml="/project.toml"
+readme="/readme.md"
+pip_req="/requirements.txt"
+.gitignore="/.gitignore"
+  -> *.pyc
+  -> __pycache__
+  -> /.venv
+  -> /venv
+src_dir="/src"
+
+[Venv]
+win_venv="/.venv"
+gnu_venv="/venv"
+
+[Scripts]
+main_script="/src/main.py"
+turle_project_script="/src/Themen/Turtle/main.py"
