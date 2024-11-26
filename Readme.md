@@ -7,3 +7,5 @@
 - n-Eck zeichnen
 - Stern zeichnen
 - Nikolaushaus zeichnen
+- Kreis zeichnen
+- Dreieck
