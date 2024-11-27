@@ -11,4 +11,4 @@
 - Dreieck
 - Eine coole Form zeichnen
 
-### Ein Vourschau Skript meines Moduls für die Klasse
+### Ein Vorschau Skript meines Moduls für die Klasse
