@@ -1,5 +1,6 @@
 ## SchoolProjects
 #### Diese Projekte hab ich in der Schule im Rahmen des Informatik Unterrichts gemacht
+### Ein Vorschau Skript meines Moduls für die Klasse ist unter /src/Vorschau.py zu finden
 
 ### Turtle:
 - Quadrat zeichnen
@@ -11,4 +12,5 @@
 - Dreieck
 - Eine coole Form zeichnen
 
-### Ein Vorschau Skript meines Moduls für die Klasse
+Eigentümer: Hans-Christian Knolle
+Für weitere Informationen über das Kopierrecht bitte die Lizenz einsehen
