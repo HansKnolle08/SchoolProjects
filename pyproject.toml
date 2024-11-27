@@ -17,3 +17,5 @@ gnu_venv="/venv"
 [Scripts]
 main_script="/src/main.py"
 turle_project_script="/src/Themen/Turtle/main.py"
+turle_project_init_script="/src/Themen/Turtle/__init__.py"
+testing_script="/src/Vorschau.py"
