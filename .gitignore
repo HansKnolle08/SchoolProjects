@@ -7,3 +7,6 @@ __pycache__
 # venv = Linux Venv
 /.venv
 /venv
+
+# Test Skript
+test.py
