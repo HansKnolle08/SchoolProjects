@@ -8,10 +8,6 @@ project.toml="/project.toml"
 readme="/readme.md"
 pip_req="/requirements.txt"
 gitignore="/.gitignore"
-  -> *.pyc
-  -> __pycache__
-  -> /.venv
-  -> /venv
 src_dir="/src"
 
 [Venv]
