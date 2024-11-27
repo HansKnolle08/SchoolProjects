@@ -12,7 +12,7 @@ class Drawing:
     - Rechteck(self, länge1: int = 100, länge2: int = 50, exitonclick: bool = True) -> None
     - n_eck(self, seiten: int = 4, länge: int = 50, exitonclick: bool = True) -> None
     - Stern(self, länge: int = 100, exitonclick: bool = True) -> None
-    - Nikolaus(self, exitonclick: bool = True) -> None
+    - Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None
     - cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
 
     Parameter:
@@ -197,13 +197,13 @@ class Drawing:
         """
         for self.n in range(5):
             self.drawing.forward(länge)
-            sleep(1 * self.deb_mul1)
+            sleep(1 * self.deb_mul)
             self.drawing.left(144)
         if exitonclick:
             t.exitonclick()
 
     @execution_time
-    def Nikolaus(self, exitonclick: bool = True) -> None:
+    def Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None:
         """
         Zeichnet ein Nikolaushaus
 
@@ -211,9 +211,11 @@ class Drawing:
         - exitonclick: bool -> Bestimmt ob die Methode turtle.exitonclick() aufgerufen werden soll
             - Diese Methode ermöglicht es das dass Fenster nicht sofort geschlossen wird sondern erst wenn der Benutzer ein Mausklick tätigt auf das Fenster
             - Standard Wert: True
+        - länge: int -> Bestimmt die Seitenlängen der Formen
+            - Standard Wert: 100
         """
-        self.Quadrat(exitonclick=False)
-        self.Dreieck(exitonclick=False)
+        self.Quadrat(länge=länge, exitonclick=False)
+        self.Dreieck(länge=länge, exitonclick=False)
         if exitonclick:
             t.exitonclick()
     
