@@ -13,7 +13,7 @@ class Drawing:
     - n_eck(self, seiten: int = 4, länge: int = 50, exitonclick: bool = True) -> None
     - Stern(self, länge: int = 100, exitonclick: bool = True) -> None
     - Nikolaus(self, exitonclick: bool = True) -> None
-    - cool_shape(self, shape: str, länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
+    - cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
 
     Parameter:
     - speed: int -> Bestimmt die Geschwindigkeit des Stiftes
@@ -24,15 +24,22 @@ class Drawing:
         - Standard Wert: Schwarz
     - debug_multipilier: float -> Zum debugging um den Code schneller laufen zu lassen
         - Standard Wert: 1.0
+    - window_width: int -> Bestimmt die Breite des Fensters
+        - Standard Wert: 800
+    - window_height -> Bestimmt die Höhe des Fensters
+        - Standard Wert: 800
     """
-    def __init__(self, speed: int, shape: str, pensize: int = 1, color: str = "black", debug_multiplier: float = 1.0) -> None:
+    def __init__(self, speed: int, shape: str, window_width: int = 800, window_height: int = 800, pensize: int = 1, color: str = "black", debug_multiplier: float = 1.0) -> None:
 
         self.speed = speed
         self.shape = shape
         self.pensize = pensize
         self.color = color
         self.deb_mul = debug_multiplier
+        self.width = window_width
+        self.height = window_height
 
+        t.setup(width=self.width, height=self.height)
         self.drawing = t.Turtle()
         self.drawing.speed(self.speed)
         self.drawing.shape(self.shape)
@@ -42,6 +49,8 @@ class Drawing:
 
         self.QUADRAT_SHAPE_VARS = ['q', 'quadrat', 'qd']
         self.CIRCLE_SHAPE_VARS = ['c', 'circle', 'cr']
+        self.LIMIT_MODE_VARS = ['lim', 'l', 'limited', 'limit']
+        self.ENDLESS_MODE_VARS = ['end', 'el', 'endless']
 
     def __repr__(self) -> str:
         return f'Drawing object with Attributes Speed: {self.speed}, Shape: {self.shape}, Pensize: {self.pensize}, Color: {self.color}, Debug Multiplier: {self.deb_mul}'
@@ -155,7 +164,7 @@ class Drawing:
         Zeichnet ein n-Eck
         
         Parameter:
-        - seiten: int -> Bestimmt die ANzahl an Seiten und Ecken des n-Ecks
+        - seiten: int -> Bestimmt die Anzahl an Seiten und Ecken des n-Ecks
             - Standard Wert: 4
         - länge: int -> Bestimmt die Seitenlängen des n-Ecks
             - Standard Wert: 50
@@ -209,7 +218,7 @@ class Drawing:
             t.exitonclick()
     
     @execution_time
-    def cool_shape(self, shape: str, länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None:
+    def cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None:
         """
         Zeichnet eine coole Form
 
@@ -222,25 +231,43 @@ class Drawing:
         - schritte: int -> Bestimmt die Anzahl an Durchläufen
             - Standard Wert: 10
         - shape: str -> Bestimmt die Grundform der coolen Form
+        - mode: str -> Bestimmt den Modus der Methode
+            - Standard Wert: limit (Empfohlen)
         """
         i: int = 0
         if schritte >= 360:
             schritte = 360
 
-        if shape.lower() in self.CIRCLE_SHAPE_VARS:
-            while not i == 360:
-                self.drawing.left(i)
-                self.Kreis(radius=länge, exitonclick=False)
-                i+=schritte
-                print(i)
-        elif shape.lower() in self.QUADRAT_SHAPE_VARS:
-            while not i == 360:
-                self.drawing.left(i)
-                self.Quadrat(länge=länge, exitonclick=False)
-                i+=schritte
-                print(i)
-        else:
-            print(f'Die eingegebene Form: {shape} existiert nicht')
+        if mode.lower() in self.LIMIT_MODE_VARS:
+            if shape.lower() in self.CIRCLE_SHAPE_VARS:
+                while not i == 360:
+                    self.drawing.left(i)
+                    self.Kreis(radius=länge, exitonclick=False)
+                    i+=schritte
+                    print(i)
+            elif shape.lower() in self.QUADRAT_SHAPE_VARS:
+                while not i == 360:
+                    self.drawing.left(i)
+                    self.Quadrat(länge=länge, exitonclick=False)
+                    i+=schritte
+                    print(i)
+            else:
+                print(f'Die eingegebene Form: {shape} existiert nicht')
+        elif mode.lower() in self.ENDLESS_MODE_VARS:
+            if shape.lower() in self.CIRCLE_SHAPE_VARS:
+                while not i == -1:
+                    self.drawing.left(i)
+                    self.Kreis(radius=länge, exitonclick=False)
+                    i+=schritte
+                    print(i)
+            elif shape.lower() in self.QUADRAT_SHAPE_VARS:
+                while not i == -1:
+                    self.drawing.left(i)
+                    self.Quadrat(länge=länge, exitonclick=False)
+                    i+=schritte
+                    print(i)
+            else:
+                print(f'Die eingegebene Form: {shape} existiert nicht')
 
         if exitonclick:
             t.exitonclick()
@@ -250,8 +277,8 @@ def main() -> None:
     """
     Hauptfunktion zum Ausführen und Testen des Modules
     """
-    my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.0001)
-    my_funcs.cool_shape(länge=100, schritte=1, shape='circle')
+    my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.01, window_height=800, window_width=1000)
+    my_funcs.n_eck(seiten=64, länge=15, exitonclick=True)
 
 if __name__ == '__main__':
     try:
