@@ -14,12 +14,13 @@ class Drawing:
     - Stern(self, länge: int = 100, exitonclick: bool = True) -> None
     - Nikolaus(self, exitonclick: bool = True) -> None
     """
-    def __init__(self, speed: int, shape: str, pensize: str = 1, color: str = "black") -> None:
+    def __init__(self, speed: int, shape: str, pensize: str = 1, color: str = "black", debug_multiplier: float = 1.0) -> None:
         self.drawing = t.Turtle()
         self.drawing.speed(speed)
         self.drawing.shape(shape)
         self.drawing.pensize(pensize)
         self.drawing.pencolor(color)
+        self.deb_mul = debug_multiplier
         self.n = 0
 
     @staticmethod
@@ -65,7 +66,7 @@ class Drawing:
         i = 0
         while not i == 4:
             self.drawing.forward(länge)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.right(90)
             i+=1
         if exitonclick:
@@ -87,7 +88,7 @@ class Drawing:
         i = 0
         while not i == 3:
             self.drawing.forward(länge)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.left(120)
             i+=1
             print(i)
@@ -112,11 +113,11 @@ class Drawing:
         i = 0
         while not i == 2:
             self.drawing.forward(länge1)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.right(90)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.forward(länge2)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.right(90)
             i+=1
         if exitonclick:
@@ -140,7 +141,7 @@ class Drawing:
         i = 0
         while not i == seiten:
             self.drawing.forward(länge)
-            sleep(1)
+            sleep(1 * self.deb_mul)
             self.drawing.right(360 / seiten)
             i+=1
         if exitonclick:
@@ -161,7 +162,7 @@ class Drawing:
         """
         for self.n in range(5):
             self.drawing.forward(länge)
-            sleep(1)
+            sleep(1 * self.deb_mul1)
             self.drawing.left(144)
         if exitonclick:
             t.exitonclick()
@@ -180,13 +181,37 @@ class Drawing:
         self.Dreieck(exitonclick=False)
         if exitonclick:
             t.exitonclick()
+    
+    @execution_time
+    def cool_shape(self, länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None:
+        """
+        Zeichnet eine coole Form
+
+        Parameter:
+        - exitonclick: bool -> Bestimmt ob die Methode turtle.exitonclick() aufgerufen werden soll
+            - Diese Methode ermöglicht es das dass Fenster nicht sofort geschlossen wird sondern erst wenn der Benutzer ein Mausklick tätigt auf das Fenster
+            - Standard Wert: True
+        - länge: int -> Bestimmt die Seitenlängen des Quadrats
+            - Standard Wer: 50
+        """
+        i: int = 0
+        if schritte >= 360:
+            schritte = 360
+
+        while not i == 360:
+            self.drawing.left(i)
+            self.Quadrat(länge=länge, exitonclick=False)
+            i+=schritte
+            print(i)
+        if exitonclick:
+            t.exitonclick()
 
 def main() -> None:
     """
     Hauptfunktion zum Ausführen und Testen des Modules
     """
-    my_funcs = Drawing(speed=0, shape="turtle", pensize=10, color="red")
-    my_funcs.Kreis()
+    my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.0001)
+    my_funcs.n_Zacken(länge=200, zacken=10)
 
 if __name__ == '__main__':
     try:
