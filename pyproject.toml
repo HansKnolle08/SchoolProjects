@@ -1,6 +1,6 @@
 [Project Meta]
 name="SchoolProjects"
-version="1.1"
+version="1.5"
 description="Programme und Projekte die im Rahmen des Informatikunterrichts entstanden sind"
 
 [Structure]
@@ -19,3 +19,7 @@ main_script="/src/main.py"
 turle_project_script="/src/Themen/Turtle/main.py"
 turle_project_init_script="/src/Themen/Turtle/__init__.py"
 testing_script="/src/Vorschau.py"
+
+[LICENSE]
+path="/LICENSE"
+type="MIT License"
