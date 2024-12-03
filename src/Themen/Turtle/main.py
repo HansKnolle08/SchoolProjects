@@ -31,13 +31,13 @@ class Drawing:
     """
     def __init__(self, speed: int, shape: str, window_width: int = 800, window_height: int = 800, pensize: int = 1, color: str = "black", debug_multiplier: float = 1.0) -> None:
 
-        self.speed = speed
-        self.shape = shape
-        self.pensize = pensize
-        self.color = color
-        self.deb_mul = debug_multiplier
-        self.width = window_width
-        self.height = window_height
+        self.speed: int = speed
+        self.shape: str = shape
+        self.pensize: int = pensize
+        self.color: str = color
+        self.deb_mul: int = debug_multiplier
+        self.width: int = window_width
+        self.height: int = window_height
 
         t.setup(width=self.width, height=self.height)
         self.drawing = t.Turtle()
@@ -45,12 +45,12 @@ class Drawing:
         self.drawing.shape(self.shape)
         self.drawing.pensize(self.pensize)
         self.drawing.pencolor(self.color)
-        self.n = 0
+        self.n: int = 0
 
-        self.QUADRAT_SHAPE_VARS = ['q', 'quadrat', 'qd']
-        self.CIRCLE_SHAPE_VARS = ['c', 'circle', 'cr']
-        self.LIMIT_MODE_VARS = ['lim', 'l', 'limited', 'limit']
-        self.ENDLESS_MODE_VARS = ['end', 'el', 'endless']
+        self.QUADRAT_SHAPE_VARS: list[str] = ['q', 'quadrat', 'qd']
+        self.CIRCLE_SHAPE_VARS: list[str] = ['c', 'circle', 'cr']
+        self.LIMIT_MODE_VARS: list[str] = ['lim', 'l', 'limited', 'limit']
+        self.ENDLESS_MODE_VARS: list[str] = ['end', 'el', 'endless']
 
     def __repr__(self) -> str:
         return f'Drawing object with Attributes Speed: {self.speed}, Shape: {self.shape}, Pensize: {self.pensize}, Color: {self.color}, Debug Multiplier: {self.deb_mul}'
