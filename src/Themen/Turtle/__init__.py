@@ -10,6 +10,7 @@
     - Stern(self, länge: int = 100, exitonclick: bool = True) -> None
     - Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None
     - cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
+    - spiral(self, radius: int = 50, exitonclick: bool = True) -> None
 
     Parameter:
     - speed: int -> Bestimmt die Geschwindigkeit des Stiftes

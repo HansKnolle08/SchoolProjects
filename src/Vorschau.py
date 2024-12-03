@@ -8,7 +8,7 @@ Turtle = Drawing(
     window_height=720, # Das bestimmt die Höhe des Fensters
     pensize=2, # Das bestimmt die dicke des Stiftes
     color='green', # Das bestimmt die Farbe des Stiftes 
-    debug_multiplier=1 # Das ist ein Multiplikator der die Geschwindigkeit beeinflusst
+    debug_multiplier=0.01 # Das ist ein Multiplikator der die Geschwindigkeit beeinflusst
     )
 
 def Kreis() -> None:
@@ -55,6 +55,11 @@ def Cool_Shape() -> None:
         länge=100, # Bestimmt die Seitenlängen des Quadrats oder den Radius der Kreises
         schritte=2 # Bestimmt jeder wie vielte Durchlauf gezeichnet wird
         )
+    
+def Spirale() -> None:
+    Turtle.spiral(
+        radius=50 # Bestimmt den Anfangsradius des Kreises
+    )
 
 def main() -> None:
     # Kreis()
@@ -65,6 +70,7 @@ def main() -> None:
     # Stern()
     # Nikolaus()
     # Cool_Shape()
+    # Spirale()
     return None
 
 if __name__ == '__main__':

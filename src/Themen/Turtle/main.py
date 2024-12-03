@@ -14,6 +14,7 @@ class Drawing:
     - Stern(self, länge: int = 100, exitonclick: bool = True) -> None
     - Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None
     - cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
+    - spiral(self, radius: int = 50, exitonclick: bool = True) -> None
 
     Parameter:
     - speed: int -> Bestimmt die Geschwindigkeit des Stiftes
@@ -271,6 +272,24 @@ class Drawing:
             else:
                 print(f'Die eingegebene Form: {shape} existiert nicht')
 
+        if exitonclick:
+            t.exitonclick()
+
+    @execution_time
+    def spiral(self, radius: int = 50, exitonclick: bool = True) -> None:
+        """
+        Zeichnet eine coole Form
+
+        Parameter:
+        - exitonclick: bool -> Bestimmt ob die Methode turtle.exitonclick() aufgerufen werden soll
+            - Diese Methode ermöglicht es das dass Fenster nicht sofort geschlossen wird sondern erst wenn der Benutzer ein Mausklick tätigt auf das Fenster
+            - Standard Wert: True
+        - radius: int -> Bestimmt den Anfangsradius des Kreises
+            - Standard Wert: 50
+        """
+        for i in range(0, 360):
+            self.drawing.forward(radius)
+            self.drawing.left(i)
         if exitonclick:
             t.exitonclick()
 
