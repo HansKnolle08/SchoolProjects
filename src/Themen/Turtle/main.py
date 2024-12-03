@@ -46,6 +46,8 @@ class Drawing:
         self.drawing.shape(self.shape)
         self.drawing.pensize(self.pensize)
         self.drawing.pencolor(self.color)
+        self.drawing.pendown()
+
         self.n: int = 0
 
         self.QUADRAT_SHAPE_VARS: list[str] = ['q', 'quadrat', 'qd']

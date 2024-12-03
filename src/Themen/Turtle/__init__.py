@@ -26,3 +26,9 @@
     - window_height -> Bestimmt die Höhe des Fensters
         - Standard Wert: 800
     """
+
+from .main import *
+
+__version__ = '1.5.5'
+__author__ = 'Hans-Christian'
+__all__ = ['main.py']
