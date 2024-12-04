@@ -1,6 +1,6 @@
 """
     Dieses Modul beinhaltet einige Methoden und Funktionen die ich zum Thema "Turtle" gemacht habe.
-
+    
     Methoden:
     - Kreis(self, radius: int = 50, exitonclick: bool = True) -> None
     - Quadrat(self, länge: int = 100, exitonclick: bool = True) -> None
@@ -29,6 +29,6 @@
 
 from .main import *
 
-__version__ = '1.5.9'
-__author__ = 'Hans-Christian'
-__all__ = ['main.py']
+__version__: str = '1.5.9'
+__author__: str = 'Hans-Christian'
+__all__: list[str] = ['main.py']
