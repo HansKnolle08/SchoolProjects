@@ -1,5 +1,5 @@
 """
-    Diese Klasse beinhaltet einige Methoden und Funktionen die ich zum Thema "Turtle" gemacht habe.
+    Dieses Modul beinhaltet einige Methoden und Funktionen die ich zum Thema "Turtle" gemacht habe.
 
     Methoden:
     - Kreis(self, radius: int = 50, exitonclick: bool = True) -> None
@@ -19,7 +19,7 @@
         - Standard Wert: 1
     - color: str -> Bestimmt die Farbe des Stiftes
         - Standard Wert: Schwarz
-    - debug_multipilier: float -> Zum debugging um den Code schneller laufen zu lassen
+    - debug_multiplier: float -> Zum debugging um den Code schneller laufen zu lassen
         - Standard Wert: 1.0
     - window_width: int -> Bestimmt die Breite des Fensters
         - Standard Wert: 800
@@ -29,6 +29,6 @@
 
 from .main import *
 
-__version__ = '1.5.5'
+__version__ = '1.5.9'
 __author__ = 'Hans-Christian'
 __all__ = ['main.py']

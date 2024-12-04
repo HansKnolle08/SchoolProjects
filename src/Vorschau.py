@@ -12,22 +12,22 @@ Turtle = Drawing(
     )
 
 def Kreis() -> None:
-    Turtle.Kreis(
+    Turtle.kreis(
         radius=100 # Bestimmt den Radius des Kreises
         )
     
 def Quadrat() -> None:
-    Turtle.Quadrat(
+    Turtle.quadrat(
         länge=100 # Bestimmt die beiden Seitenlängen
     )
 
 def Dreieck() -> None:
-    Turtle.Dreieck(
+    Turtle.dreieck(
         länge=100 # Bestimmt die Seitenlängen des Dreiecks
     )
 
 def Rechteck() -> None:
-    Turtle.Rechteck(
+    Turtle.rechteck(
         länge1=100, # Bestimmt die längere Seitenlänge des Rechtecks
         länge2=50 # Bestimmt die Kürzere Seitenlänge des Rechtecks
     )
@@ -39,12 +39,12 @@ def n_Eck() -> None:
     )
 
 def Stern() -> None:
-    Turtle.Stern(
+    Turtle.stern(
         länge=100 # Bestimmt die Seitenlängen des Sterns
     )
 
 def Nikolaus() -> None:
-    Turtle.Nikolaus(
+    Turtle.nikolaus(
         länge=200 # Bestimmt die Seitenlängen der Formen
     )
 
@@ -74,4 +74,7 @@ def main() -> None:
     return None
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        quit()

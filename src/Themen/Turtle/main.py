@@ -1,6 +1,12 @@
+###########
+# IMPORTS #
+###########
 import turtle as t
 from time import sleep, time
 
+################################
+# DEFINITION OF THE MAIN CLASS #
+################################
 class Drawing:
     """
     Diese Klasse beinhaltet einige Methoden und Funktionen die ich zum Thema "Turtle" gemacht habe.
@@ -23,15 +29,21 @@ class Drawing:
         - Standard Wert: 1
     - color: str -> Bestimmt die Farbe des Stiftes
         - Standard Wert: Schwarz
-    - debug_multipilier: float -> Zum debugging um den Code schneller laufen zu lassen
+    - debug_multiplier: float -> Zum debugging um den Code schneller laufen zu lassen
         - Standard Wert: 1.0
     - window_width: int -> Bestimmt die Breite des Fensters
         - Standard Wert: 800
     - window_height -> Bestimmt die Höhe des Fensters
         - Standard Wert: 800
     """
+    ###############
+    # INITIALIZER #
+    ###############
     def __init__(self, speed: int, shape: str, window_width: int = 800, window_height: int = 800, pensize: int = 1, color: str = "black", debug_multiplier: float = 1.0) -> None:
 
+        #################
+        # Variable init #
+        #################
         self.speed: int = speed
         self.shape: str = shape
         self.pensize: int = pensize
@@ -40,39 +52,76 @@ class Drawing:
         self.width: int = window_width
         self.height: int = window_height
 
-        t.setup(width=self.width, height=self.height)
+        #########################
+        # Turtle init and setup #
+        #########################
         self.drawing = t.Turtle()
+        t.setup(width=self.width, height=self.height)
         self.drawing.speed(self.speed)
         self.drawing.shape(self.shape)
         self.drawing.pensize(self.pensize)
         self.drawing.pencolor(self.color)
         self.drawing.pendown()
-
         self.n: int = 0
 
+        #############
+        # Constants #
+        #############
         self.QUADRAT_SHAPE_VARS: list[str] = ['q', 'quadrat', 'qd']
         self.CIRCLE_SHAPE_VARS: list[str] = ['c', 'circle', 'cr']
         self.LIMIT_MODE_VARS: list[str] = ['lim', 'l', 'limited', 'limit']
         self.ENDLESS_MODE_VARS: list[str] = ['end', 'el', 'endless']
 
+        ################
+        # Methods init #
+        ################
+        def __repr__(self) -> str: ...
+        def __str__(self) -> str: ...
+
+        def exec_time(func): ...
+
+        def kreis(self, radius: int = 50, exitonclick: bool = True) -> None: ...
+        def quadrat(self, länge: int = 100, exitonclick: bool = True) -> None: ...
+        def dreieck(self, länge: int = 100, exitonclick: bool = True) -> None: ...
+        def rechteck(self, länge1: int = 100, länge2: int = 50, exitonclick: bool = True) -> None: ...
+        def n_eck(self, seiten: int = 4, länge: int = 50, exitonclick: bool = True) -> None: ...
+        def stern(self, länge: int = 100, exitonclick: bool = True) -> None: ...
+        def nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None: ...
+        def cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None: ...
+        def spiral(self, radius: int = 50, exitonclick: bool = True) -> None: ...
+
+        def main() -> None: ...
+
+    ########################
+    # OTHER DUNDER-METHODS #
+    ########################
     def __repr__(self) -> str:
         return f'Drawing object with Attributes Speed: {self.speed}, Shape: {self.shape}, Pensize: {self.pensize}, Color: {self.color}, Debug Multiplier: {self.deb_mul}'
     
     def __str__(self) -> str:
         return f'Drawing object with Attributes Speed: {self.speed}, Shape: {self.shape}, Pensize: {self.pensize}, Color: {self.color}, Debug Multiplier: {self.deb_mul}'
 
+    #################
+    # OTHER METHODS #
+    #################
     @staticmethod
-    def execution_time(func):
-        def wrapper(*args, **kwargs):
-            start_time = time()
+    def exec_time(func):
+        """
+        Diese Methode ist ein Dekorator die die Ausführungszeit einer Funktion ausgibt
+        """
+        def wrapper(*args, **kwargs) -> int | float:
+            start_time: float = time()
             result = func(*args, **kwargs)
-            end_time = time()
+            end_time: float = time()
             print(f'Die Methode {func.__name__} hatte eine Ausführungszeit von: {end_time - start_time:.6f} seconds')
             return result
         return wrapper
     
-    @execution_time
-    def Kreis(self, radius: int = 50, exitonclick: bool = True) -> None:
+    ################
+    # MAIN METHODS #
+    ################
+    @exec_time
+    def kreis(self, radius: int = 50, exitonclick: bool = True) -> None:
         """
         Zeichnet einen Kreis
         
@@ -88,8 +137,8 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
-    def Quadrat(self, länge: int = 100, exitonclick: bool = True) -> None:
+    @exec_time
+    def quadrat(self, länge: int = 100, exitonclick: bool = True) -> None:
         """
         Zeichnet ein Quadrat
         
@@ -110,8 +159,8 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
-    def Dreieck(self, länge: int = 100, exitonclick: bool = True) -> None:
+    @exec_time
+    def dreieck(self, länge: int = 100, exitonclick: bool = True) -> None:
         """
         Zeichnet ein Dreieck
         
@@ -133,8 +182,8 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
-    def Rechteck(self, länge1: int = 100, länge2: int = 50, exitonclick: bool = True) -> None:
+    @exec_time
+    def rechteck(self, länge1: int = 100, länge2: int = 50, exitonclick: bool = True) -> None:
         """
         Zeichnet ein Rechteck
         
@@ -161,7 +210,7 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
+    @exec_time
     def n_eck(self, seiten: int = 4, länge: int = 50, exitonclick: bool = True) -> None:
         """
         Zeichnet ein n-Eck
@@ -185,8 +234,8 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
-    def Stern(self, länge: int = 100, exitonclick: bool = True) -> None:
+    @exec_time
+    def stern(self, länge: int = 100, exitonclick: bool = True) -> None:
         """
         Zeichnet einen Stern
 
@@ -205,8 +254,8 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
-    def Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None:
+    @exec_time
+    def nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None:
         """
         Zeichnet ein Nikolaushaus
 
@@ -217,12 +266,12 @@ class Drawing:
         - länge: int -> Bestimmt die Seitenlängen der Formen
             - Standard Wert: 100
         """
-        self.Quadrat(länge=länge, exitonclick=False)
-        self.Dreieck(länge=länge, exitonclick=False)
+        self.quadrat(länge=länge, exitonclick=False)
+        self.dreieck(länge=länge, exitonclick=False)
         if exitonclick:
             t.exitonclick()
     
-    @execution_time
+    @exec_time
     def cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None:
         """
         Zeichnet eine coole Form
@@ -247,13 +296,13 @@ class Drawing:
             if shape.lower() in self.CIRCLE_SHAPE_VARS:
                 while not i == 360:
                     self.drawing.left(i)
-                    self.Kreis(radius=länge, exitonclick=False)
+                    self.kreis(radius=länge, exitonclick=False)
                     i+=schritte
                     print(i)
             elif shape.lower() in self.QUADRAT_SHAPE_VARS:
                 while not i == 360:
                     self.drawing.left(i)
-                    self.Quadrat(länge=länge, exitonclick=False)
+                    self.quadrat(länge=länge, exitonclick=False)
                     i+=schritte
                     print(i)
             else:
@@ -262,13 +311,13 @@ class Drawing:
             if shape.lower() in self.CIRCLE_SHAPE_VARS:
                 while not i == -1:
                     self.drawing.left(i)
-                    self.Kreis(radius=länge, exitonclick=False)
+                    self.kreis(radius=länge, exitonclick=False)
                     i+=schritte
                     print(i)
             elif shape.lower() in self.QUADRAT_SHAPE_VARS:
                 while not i == -1:
                     self.drawing.left(i)
-                    self.Quadrat(länge=länge, exitonclick=False)
+                    self.quadrat(länge=länge, exitonclick=False)
                     i+=schritte
                     print(i)
             else:
@@ -277,7 +326,7 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-    @execution_time
+    @exec_time
     def spiral(self, radius: int = 50, exitonclick: bool = True) -> None:
         """
         Zeichnet eine coole Form
@@ -295,14 +344,20 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
-@Drawing.execution_time
+#########################
+# PROGRAM MAIN FUNCTION #
+#########################
+@Drawing.exec_time
 def main() -> None:
     """
     Hauptfunktion zum Ausführen und Testen des Modules
     """
     my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.01, window_height=800, window_width=1000)
-    my_funcs.n_eck(seiten=64, länge=15, exitonclick=True)
+    my_funcs.n_eck(seiten=64, länge=15)
 
+###############
+# ENTRY POINT #
+###############
 if __name__ == '__main__':
     try:
         main()
