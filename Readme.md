@@ -9,8 +9,9 @@
 - Stern zeichnen
 - Nikolaushaus zeichnen
 - Kreis zeichnen
-- Dreieck
+- Dreieck zeichnen
 - Eine coole Form zeichnen
+- Treppe zeichnen
 
 Eigentümer: Hans-Christian Knolle
 Für weitere Informationen über das Kopierrecht bitte die Lizenz einsehen
