@@ -73,6 +73,7 @@ class Drawing:
         self.LIMIT_MODE_VARS: list[str] = ['lim', 'l', 'limited', 'limit']
         self.ENDLESS_MODE_VARS: list[str] = ['end', 'el', 'endless']
 
+
         ################
         # Methods init #
         ################
@@ -367,6 +368,42 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
+    def flagge(self, flagge: str = 'Deutschland', exitonclick: bool = True) -> None:
+        if flagge == 'Deutschland':
+            self.drawing.fillcolor("yellow")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=150, exitonclick=False)
+            self.drawing.end_fill()
+
+            self.drawing.fillcolor("red")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=100, exitonclick=False)
+            self.drawing.end_fill()
+
+            self.drawing.fillcolor("black")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=50, exitonclick=False)
+            self.drawing.end_fill()
+        elif flagge == 'Deutsches Reich':
+            self.drawing.fillcolor("red")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=150, exitonclick=False)
+            self.drawing.end_fill()
+
+            self.drawing.fillcolor("white")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=100, exitonclick=False)
+            self.drawing.end_fill()
+
+            self.drawing.fillcolor("black")
+            self.drawing.begin_fill()
+            self.rechteck(länge1=300, länge2=50, exitonclick=False)
+            self.drawing.end_fill()
+
+        if exitonclick:
+            t.exitonclick()
+        
+
 #########################
 # PROGRAM MAIN FUNCTION #
 #########################
@@ -376,7 +413,7 @@ def main() -> None:
     Hauptfunktion zum Ausführen und Testen des Modules
     """
     my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.01, window_height=800, window_width=1000)
-    my_funcs.treppe(länge=25, stufen=7)
+    my_funcs.flagge()
 
 ###############
 # ENTRY POINT #
