@@ -21,6 +21,7 @@ class Drawing:
     - Nikolaus(self, länge: int = 100, exitonclick: bool = True) -> None
     - cool_shape(self, shape: str, mode: str = 'limit', länge: int = 50, schritte: int = 10, exitonclick: bool = True) -> None
     - spiral(self, radius: int = 50, exitonclick: bool = True) -> None
+    - treppe(self, länge: int = 50, stufen: int = 10, exitonclick: bool = True) -> None
 
     Parameter:
     - speed: int -> Bestimmt die Geschwindigkeit des Stiftes
@@ -329,7 +330,7 @@ class Drawing:
     @exec_time
     def spiral(self, radius: int = 50, exitonclick: bool = True) -> None:
         """
-        Zeichnet eine coole Form
+        Zeichnet eine Spirale
 
         Parameter:
         - exitonclick: bool -> Bestimmt ob die Methode turtle.exitonclick() aufgerufen werden soll
@@ -344,6 +345,28 @@ class Drawing:
         if exitonclick:
             t.exitonclick()
 
+    @exec_time
+    def treppe(self, länge: int = 50, stufen: int = 10, exitonclick: bool = True) -> None:
+        """
+        Zeichnet eine coole Form
+
+        Parameter:
+        - exitonclick: bool -> Bestimmt ob die Methode turtle.exitonclick() aufgerufen werden soll
+            - Diese Methode ermöglicht es das dass Fenster nicht sofort geschlossen wird sondern erst wenn der Benutzer ein Mausklick tätigt auf das Fenster
+            - Standard Wert: True
+        - länge: int -> Bestimmt die Länge einer Stufe
+            - Standard Wert: 50
+        - stufen: int -> Bestimmt die Anzahl der Stufen
+            - Standard Wert: 10
+        """
+        for i in range(stufen):
+            self.drawing.forward(länge)
+            self.drawing.right(90)
+            self.drawing.forward(länge)
+            self.drawing.left(90)
+        if exitonclick:
+            t.exitonclick()
+
 #########################
 # PROGRAM MAIN FUNCTION #
 #########################
@@ -353,7 +376,7 @@ def main() -> None:
     Hauptfunktion zum Ausführen und Testen des Modules
     """
     my_funcs = Drawing(speed=0, shape="turtle", pensize=1, color="red", debug_multiplier=0.01, window_height=800, window_width=1000)
-    my_funcs.n_eck(seiten=64, länge=15)
+    my_funcs.treppe(länge=25, stufen=7)
 
 ###############
 # ENTRY POINT #
