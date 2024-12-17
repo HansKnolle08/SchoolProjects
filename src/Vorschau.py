@@ -61,6 +61,12 @@ def Spirale() -> None:
         radius=50 # Bestimmt den Anfangsradius des Kreises
     )
 
+def Treppe() -> None:
+    Turtle.treppe(
+        länge=25, # Bestimmt die länge der Stufen
+        stufen=10 # Bestimmt die Anzahl die Stufen
+    )
+
 def main() -> None:
     # Kreis()
     # Quadrat()
@@ -71,6 +77,7 @@ def main() -> None:
     # Nikolaus()
     # Cool_Shape()
     # Spirale()
+    # Treppe()
     return None
 
 if __name__ == '__main__':
